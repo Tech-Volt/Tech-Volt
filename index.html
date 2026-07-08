@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТехВольт — Свяжитесь с нами</title>
+  <meta name="description" content="Выберите удобный мессенджер для связи с ТехВольт — электрика, которой можно доверять.">
+  <link rel="icon" type="image/png" href="Images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f9fb;
+      color: #1a1a2e;
+      overflow: hidden;
+    }
+
+    /* Фоновое свечение */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -40%;
+      left: -20%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+      animation: glow-drift 12s ease-in-out infinite alternate;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -30%;
+      right: -20%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      animation: glow-drift 10s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes glow-drift {
+      0%   { transform: translate(0, 0); }
+      100% { transform: translate(40px, 30px); }
+    }
+
+    /* Контейнер */
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2.5rem 2rem;
+      width: min(400px, 90vw);
+      animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Логотип */
+    .logo {
+      width: 140px;
+      height: auto;
+      border-radius: 12px;
+      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.08));
+      animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+
+    /* Заголовок */
+    .heading {
+      text-align: center;
+      animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .heading h1 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1a1a2e;
+    }
+
+    .heading p {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      font-weight: 400;
+    }
+
+    /* Кнопки */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      width: 100%;
+      padding: 0.95rem 1.25rem;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.7);
+      color: #1a1a2e;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .btn:nth-child(1) { animation-delay: 0.3s; }
+    .btn:nth-child(2) { animation-delay: 0.4s; }
+    .btn:nth-child(3) { animation-delay: 0.5s; }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      transition-duration: 0.1s;
+    }
+
+    /* Иконки мессенджеров */
+    .btn-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .btn-icon svg,
+    .btn-icon img {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+    }
+
+    /* Цветовые акценты при ховере */
+    .btn--tg:hover {
+      border-color: rgba(38, 165, 228, 0.3);
+      box-shadow: 0 8px 32px rgba(38, 165, 228, 0.12);
+    }
+
+    .btn--max:hover {
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.12);
+    }
+
+    .btn--wa:hover {
+      border-color: rgba(37, 211, 102, 0.3);
+      box-shadow: 0 8px 32px rgba(37, 211, 102, 0.12);
+    }
+
+    /* Стрелка справа */
+    .btn-arrow {
+      margin-left: auto;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: all 0.25s ease;
+      color: #9ca3af;
+    }
+
+    .btn:hover .btn-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Футер */
+    .footer {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <img src="Images/logo.png" alt="ТехВольт" class="logo" id="logo">
+
+    <div class="heading">
+      <h1>Напишите нам</h1>
+      <p>Выберите удобный мессенджер</p>
+    </div>
+
+    <div class="buttons">
+      <!-- Telegram -->
+      <a href="https://t.me/TechVolt25" target="_blank" rel="noopener" class="btn btn--tg" id="btn-telegram">
+        <span class="btn-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="#26A5E4"/>
+            <path d="M33.2 15.3L29.6 33.1C29.6 33.1 29.1 34.3 27.8 33.7L20.8 28.4L17.6 26.9L12.4 25.2C12.4 25.2 11.6 24.9 11.5 24.3C11.4 23.7 12.4 23.4 12.4 23.4L31.7 15.8C31.7 15.8 33.2 15.1 33.2 15.3Z" fill="white"/>
+            <path d="M19.5 33C19.5 33 19.2 33 19.1 32.4C19 31.8 17.6 26.9 17.6 26.9L29 19.5C29 19.5 29.6 19.1 29.5 19.5C29.5 19.5 29.4 19.6 29 20C28.6 20.4 20.8 27.5 20.8 27.5" fill="#B0BEC5"/>
+            <path d="M23.1 30L19.9 32.9C19.9 32.9 19.7 33.1 19.5 33L20.1 28.3" fill="#90A4AE"/>
+          </svg>
+        </span>
+        Telegram
+        <span class="btn-arrow">→</span>
+      </a>
+
+      <!-- Max -->
+      <a href="https://clck.ru/3TGimh" target="_blank" rel="noopener" class="btn btn--max" id="btn-max">
+        <span class="btn-icon">
+          <img src="Images/MAX.png" alt="Max">
+        </span>
+        Max
+        <span class="btn-arrow">→</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://clck.ru/3TGiph" target="_blank" rel="noopener" class="btn btn--wa" id="btn-whatsapp">
+        <span class="btn-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="#25D366"/>
+            <path d="M24 12C17.4 12 12 17.3 12 23.8C12 25.9 12.6 27.9 13.6 29.6L12 36L18.6 34.5C20.2 35.4 22 35.9 24 35.9C30.6 35.9 36 30.6 36 24.1C36 20.9 34.8 17.9 32.5 15.7C30.3 13.4 27.3 12 24 12ZM30.4 28.3C30.1 29 28.9 29.6 28.4 29.7C27.4 29.8 26.7 29.6 25.1 28.9C21.8 27.5 19.7 24.1 19.5 23.8C19.3 23.6 18 21.8 18 20C18 18.2 18.9 17.3 19.3 16.9C19.6 16.5 20 16.4 20.3 16.4C20.5 16.4 20.7 16.4 20.9 16.4C21.1 16.4 21.4 16.3 21.7 17C22 17.7 22.7 19.5 22.8 19.6C22.9 19.8 22.9 20 22.8 20.2C22.3 21 21.7 21.5 21.5 21.8C21.7 22.2 22.5 23.5 23.7 24.5C25.3 25.8 26.5 26.2 26.9 26.4C27.3 26.6 27.5 26.5 27.7 26.3C27.9 26.1 28.6 25.2 28.8 24.9C29 24.5 29.3 24.5 29.6 24.7C29.9 24.8 31.7 25.7 32 25.9C32.3 26.1 32.5 26.1 32.6 26.3C32.6 26.4 32.6 27.3 30.4 28.3Z" fill="white"/>
+          </svg>
+        </span>
+        WhatsApp
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+    <span class="footer">ТехВольт · электрика, которой можно доверять</span>
+  </main>
+
+</body>
+</html>
